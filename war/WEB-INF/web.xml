@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5"> 
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>greetServlet</servlet-name>
+		<servlet-class>com.ivy.auto.expense.server.GreetingServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>fuelServlet</servlet-name>
+		<servlet-class>com.ivy.auto.expense.server.FuelExpenseServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>greetServlet</servlet-name>
+		<url-pattern>/autoexpensetracker/greet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>fuelServlet</servlet-name>
+		<url-pattern>/autoexpensetracker/fuel</url-pattern>
+	</servlet-mapping>
+
+	<!-- Default page to serve -->
+	<welcome-file-list>
+		<welcome-file>AutoExpenseTrackerAdvanced.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Enable authentication using standard Google Login service -->
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+</web-app>
